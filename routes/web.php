@@ -19,7 +19,7 @@ Route::get('/', HomeController::class); // llama a invoke
 Route::controller(CursoController::class)->group(function (){
     Route::get('cursos', 'index');
     Route::get('cursos/create', 'create');
-    Route::get('cursos/{curso}/{categoria?}','show');
+    Route::get('cursos/{curso}','show');
 });
 
 
