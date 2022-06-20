@@ -1,4 +1,4 @@
-# COMANDOS DATABASE LARAVEL #
+# COMANDOS DATABASE LARAVEL 
 
 php artisan migrate -- migrar todas las tablas que no han sido previamente migradas -- "commit"
 
@@ -18,3 +18,13 @@ composer require doctrine/dbal:
     Permite realizar cambios en las propiedades de una columna
     Ejemplo: php artisan make:migration cambiar_propiedades_to_users_table
         método up: $table->string('name',150)->change(); -- Cambiamos a max 150 chars
+
+
+# SEEDER
+php artisan make:seeder CursoSeeder
+
+php artisan migrate:fresh --seed
+    Ejecuta los seeders creados en el archivo DatabaseSeeder.php
+
+$this->call(CursoSeeder::class);
+    En DatabaseSeeder para que al hacer fresh --seed nos lea también el seeder de Curso
