@@ -20,7 +20,7 @@ composer require doctrine/dbal:
         método up: $table->string('name',150)->change(); -- Cambiamos a max 150 chars
 
 
-# SEEDER
+# SEEDERS
 php artisan make:seeder CursoSeeder
 
 php artisan migrate:fresh --seed
@@ -28,3 +28,11 @@ php artisan migrate:fresh --seed
 
 $this->call(CursoSeeder::class);
     En DatabaseSeeder para que al hacer fresh --seed nos lea también el seeder de Curso
+
+# FACTORIES
+php artisan make:factory CursoFactory --model=Curso
+    Adapta el código del factory al modelo curso
+
+Dentro del seeder
+    Curso::factory(50)->create(); 
+    Se nos crearán 50 registros con las indicaciones que le dimos previamente en CursoFactory
