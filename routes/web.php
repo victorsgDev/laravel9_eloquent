@@ -17,9 +17,19 @@ use App\Http\Controllers\CursoController;
 Route::get('/', HomeController::class); // llama a invoke
 
 Route::controller(CursoController::class)->group(function (){
-    Route::get('cursos', 'index');
-    Route::get('cursos/create', 'create');
-    Route::get('cursos/{curso}','show');
+    Route::get('cursos', 'index')->name('cursos.index');
+
+    Route::get('cursos/{curso}','show')->name('cursos.show');
+
+    Route::get('cursos/create', 'create')->name('cursos.create');
+    Route::post('cursos','store')->name('cursos.store');
+
+    Route::get('cursos/{curso}/edit','edit')->name('cursos.edit');
+    Route::put('cursos/{curso}','update')->name('cursos.update');
+
+    Route::get('cursos/{curso}/delete','delete')->name('cursos.delete');
+    Route::delete('cursos/{curso}','confirmDelete')->name('cursos.confirmDelete');
+
 });
 
 
